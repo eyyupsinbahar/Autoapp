@@ -1,4 +1,4 @@
-# myapp
+# New Flutter Auto Proje 2025
 
 A new Flutter project.
 
