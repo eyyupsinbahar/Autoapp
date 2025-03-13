@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/auto.dart';
 
 void main() {
   runApp(const AutoApp());
@@ -42,7 +43,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
         title: Text(widget.title),
       ),
-      body: SafeArea(child: Container()),
+      body: SafeArea(
+        child: ListView.builder(
+          itemCount: Auto.araclar.length,
+          itemBuilder: (context, index) {
+            return Text(Auto.araclar[index].Marka);
+          },
+        ),
+      ),
     );
   }
 }
