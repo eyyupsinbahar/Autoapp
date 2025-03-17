@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/auto.dart';
+import 'package:myapp/auto_detay.dart';
 
 void main() {
   runApp(const AutoApp());
@@ -15,7 +16,7 @@ class AutoApp extends StatelessWidget {
       title: 'Şenbahar Auto',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 255, 255, 255),
+          seedColor: const Color.fromARGB(255, 179, 179, 179),
         ),
         useMaterial3: true,
       ),
@@ -44,11 +45,19 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: SafeArea(
-        child: ListView.builder(
-          itemCount: auto.araclar.length,
-          itemBuilder: (context, index) {
-            return aracOlustur(auto.araclar[index]);
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AutoDetay()),
+            );
           },
+          child: ListView.builder(
+            itemCount: auto.araclar.length,
+            itemBuilder: (context, index) {
+              return aracOlustur(auto.araclar[index]);
+            },
+          ),
         ),
       ),
     );
@@ -56,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget aracOlustur(auto auto) {
     return Card(
-      color: const Color.fromARGB(255, 37, 37, 37),
+      color: const Color.fromARGB(255, 235, 235, 235),
       elevation: 5.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       child: Padding(
