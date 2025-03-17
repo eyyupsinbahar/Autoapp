@@ -15,7 +15,7 @@ class AutoApp extends StatelessWidget {
       title: 'Şenbahar Auto',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 0, 255, 251),
+          seedColor: const Color.fromARGB(255, 255, 255, 255),
         ),
         useMaterial3: true,
       ),
@@ -56,8 +56,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget aracOlustur(auto auto) {
     return Card(
-      child: Column(
-        children: [Image(image: AssetImage(auto.aracresmi)), Text(auto.Marka)],
+      color: const Color.fromARGB(255, 37, 37, 37),
+      elevation: 5.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Image(image: AssetImage(auto.aracresmi)),
+            SizedBox(height: 10),
+            Text(
+              auto.Marka,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+            ),
+          ],
+        ),
       ),
     );
   }
